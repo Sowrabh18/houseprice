@@ -1,0 +1,9 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python data/load_data.py
+    outs:
+    - path: data/housing.csv
+      hash: md5
+      md5: 36112e03269a0e8479b105bb640597bd
+      size: 1915789
