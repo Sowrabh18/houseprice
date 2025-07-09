@@ -1,9 +1,14 @@
+# House Price Prediction MLOps Pipeline
+
+A machine learning project to predict house prices using Git, DVC, MLflow, and GitHub Actions.
+
 ## Status
 - Initialized Git repository and set up `.gitignore`.
 - Initialized DVC and versioned the California Housing dataset.
 - Created DVC pipeline for data loading.
 - Trained linear regression model and logged with MLflow.
 - Versioned model with DVC.
+- Set up CI with GitHub Actions to run DVC pipeline.
 
 ## Setup
 1. Install dependencies: `pip install dvc mlflow scikit-learn pandas numpy joblib`
@@ -16,6 +21,12 @@
 - `src/`: Training script
 - `models/`: Trained model
 - `dvc.yaml`: DVC pipeline configuration
+- `.github/workflows/`: CI configuration
 - `.gitignore`: Ignored files
 - `README.md`: Project documentation
 
+## CI
+- GitHub Actions runs `dvc repro` on every push to `main`, versioning data and model.
+
+## Next Steps
+- Explore additional models or hyperparameter tuning with MLflow.
