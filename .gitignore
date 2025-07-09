@@ -1,8 +1,10 @@
 *.pyc
 __pycache__/
 .dvc/cache/
-data/
 models/
 .venv/
 mlruns/
+# Ignore only the CSV, not the entire data folder
+data/housing.csv
+!data/load_data.py
 
