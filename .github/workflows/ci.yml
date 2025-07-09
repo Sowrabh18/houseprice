@@ -9,10 +9,12 @@ jobs:
   run-pipeline:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Add this line to allow write access
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history to handle rebase/merge
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -33,6 +35,9 @@ jobs:
           git config --global user.email "action@github.com"
           git add dvc.lock
           git commit -m "Update dvc.lock from CI" || echo "No changes to commit"
+          git fetch origin main  # Fetch remote changes
+          git merge --ff-only origin/main  # Fast-forward only if possible
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true  # Allow workflow to continue if merge fails
