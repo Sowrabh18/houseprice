@@ -8,7 +8,8 @@ on:
 jobs:
   run-pipeline:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write  # Add this line to allow write access
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -30,7 +31,8 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git add dvc.lock
           git commit -m "Update dvc.lock from CI" || echo "No changes to commit"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
