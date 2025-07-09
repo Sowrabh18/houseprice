@@ -25,8 +25,12 @@ A machine learning project to predict house prices using Git, DVC, MLflow, and G
 - `.gitignore`: Ignored files
 - `README.md`: Project documentation
 
-## CI
-- GitHub Actions runs `dvc repro` on every push to `main`, versioning data and model.
 
-## Next Steps
-- Explore additional models or hyperparameter tuning with MLflow.
+did some debugging
+## CI
+- GitHub Actions runs `dvc repro` on every push to `main`, versioning data and model..
+
+
+
+
+
