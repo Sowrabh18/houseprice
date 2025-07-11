@@ -5,15 +5,15 @@ stages:
     outs:
     - path: data/housing.csv
       hash: md5
-      md5: 2d9b26cf48205da9ac36e34d6042edab
-      size: 1895148
+      md5: 36112e03269a0e8479b105bb640597bd
+      size: 1915789
   train:
     cmd: python src/train.py
     deps:
     - path: data/housing.csv
       hash: md5
-      md5: 2d9b26cf48205da9ac36e34d6042edab
-      size: 1895148
+      md5: 36112e03269a0e8479b105bb640597bd
+      size: 1915789
     outs:
     - path: models/linear_model.pkl
       hash: md5
